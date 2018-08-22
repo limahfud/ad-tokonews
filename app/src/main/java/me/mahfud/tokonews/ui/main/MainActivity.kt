@@ -2,6 +2,7 @@ package me.mahfud.tokonews.ui.main
 
 import android.Manifest
 import android.content.pm.PackageManager
+import android.graphics.Typeface
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.v4.app.ActivityCompat
@@ -36,15 +37,14 @@ class MainActivity : AppCompatActivity(), MainView {
         if (ContextCompat.checkSelfPermission(this, Manifest.permission.INTERNET)
                 != PackageManager.PERMISSION_GRANTED) {
 
-            Log.d("ALI ", "Check point -Z")
 
 
             ActivityCompat.requestPermissions(this,
                     arrayOf(Manifest.permission.INTERNET), MY_REQUEST_INTERNET_CODE)
         } else {
-            Log.d("ALI ", "Check point -Z Granted")
             presenter.getSourceList()
         }
+
     }
 
     override fun onSourcesReady(sources: List<Source>) {
@@ -54,11 +54,6 @@ class MainActivity : AppCompatActivity(), MainView {
 
         rvListSources.layoutManager = layoutManager
         rvListSources.adapter = sourceListAdapter
-    }
-
-
-    fun success() {
-//        toast("Success")
     }
 
     override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<out String>, grantResults: IntArray) {

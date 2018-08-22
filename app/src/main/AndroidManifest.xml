@@ -18,8 +18,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
-
+        <activity android:name=".ui.news.NewsListActivity" />
+        <activity android:name=".ui.article.FullArticleActivity"></activity>
     </application>
 
 </manifest>
