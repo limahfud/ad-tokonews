@@ -1,8 +1,11 @@
 package me.mahfud.tokonews.ui.main
 
+import android.content.res.AssetManager
+import android.graphics.Typeface
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import kotlinx.android.synthetic.main.layout_source_item.view.*
 import me.mahfud.tokonews.R
 import me.mahfud.tokonews.model.Source
 
@@ -20,4 +23,6 @@ class SourceAdapter(private val sources: List<Source> = listOf()): RecyclerView.
     override fun onBindViewHolder(holder: SourceHolder, position: Int) {
         holder.bind(sources[position])
     }
+
+
 }
