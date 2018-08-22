@@ -11,5 +11,6 @@ interface ApiService {
     fun getSources(): Single<SourceListResponse>
 
     @GET("v2/everything")
-    fun getArticles(@Query("sources") sources: String): Single<ArticlesResponse>
+    fun getArticles(@Query("sources") sources: String,
+                    @Query("q") query: String = ""): Single<ArticlesResponse>
 }

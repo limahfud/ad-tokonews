@@ -10,11 +10,11 @@ import me.mahfud.tokonews.network.response.ArticlesResponse
 
 class NewsPresenterImpl(private val view: NewsListView): NewsPresenter {
 
-    override fun getListNews(sourceId: String) {
+    override fun getListNews(sourceId: String, query: String) {
         val apiService = ApiClient.getClient()?.create(ApiService::class.java) ?: return
 
         Thread().run {
-            apiService.getArticles(sourceId)
+            apiService.getArticles(sourceId, query)
                     .subscribeOn(Schedulers.io())
                     .observeOn(AndroidSchedulers.mainThread())
                     .subscribeWith(object: DisposableSingleObserver<ArticlesResponse>() {
